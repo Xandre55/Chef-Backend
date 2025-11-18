@@ -135,6 +135,7 @@ For each recipe, provide:
 - list of ingredients
 - step-by-step instructions
 Respond in markup for easy display on a website.
+don't include any additional text.
  
 `;
 
@@ -159,7 +160,7 @@ app.post("/recipes", async (req, res) => {
     }
 
     const recipes = await generateRecipes(ingredients, model);
-    res.json(recipes);
+    res.send(recipes);
   } catch (err) {
     console.error("Error generating recipes:", err);
     res.status(500).json({ error: err.message });
@@ -168,6 +169,7 @@ app.post("/recipes", async (req, res) => {
 
 // Start server
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, "0.0.0.0", () => console.log(`Server running on port ${PORT}`));
+generateRecipes(["egg", "meat", 'onion', "garlic", "tomato"]).then(console.log).catch(console.error);
 
 
