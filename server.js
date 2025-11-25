@@ -139,7 +139,7 @@ For each recipe, provide:
 - short description
 - list of ingredients
 - step-by-step instructions
-Respond in markup for easy display on a website.
+Respond in markdown for easy display on a website.
 don't include any additional text.
  
 `;
